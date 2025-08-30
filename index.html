@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Auto Slider</title>
+  <style>
+    body { text-align: center; font-family: Arial; }
+    .slider {
+      width: 400px;
+      overflow: hidden;
+      margin: auto;
+      border-radius: 10px;
+      border: 2px solid #333;
+    }
+    .slides {
+      display: flex;
+      transition: transform 1s;
+    }
+    .slides img {
+      width: 400px;
+      height: 250px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Auto-Playing Slider</h2>
+<p> LEt's get to understand sliders
+    
+</p>
+  <div class="slider">
+    <div class="slides">
+      <img src="https://picsum.photos/400/250?random=4">
+      <img src="https://picsum.photos/400/250?random=5">
+      <img src="https://picsum.photos/400/250?random=6">
+    </div>
+  </div>
+
+  <script>
+    let index = 0;
+    const slides = document.querySelector(".slides");
+    const total = slides.children.length;
+
+    setInterval(() => {
+      index = (index + 1) % total;
+      slides.style.transform = `translateX(-${index * 400}px)`;
+    }, 3000); // change every 3 seconds
+  </script>
+
+</body>
+</html>
